@@ -25,7 +25,12 @@ public class ListenerInvocationHandler implements InvocationHandler {
         String methodName = method.getName();//假如是onClick
         method = map.get(methodName);
         if (method != null) {
-            return method.invoke(target, args);
+            //判断方法是否有参数
+            if (method.getParameterTypes().length == 0) {
+                return method.invoke(target);
+            } else {
+                return method.invoke(target, args);
+            }
         }
         return null;
     }

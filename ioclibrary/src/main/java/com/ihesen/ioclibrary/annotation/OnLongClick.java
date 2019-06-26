@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-@ClickBase(listenerSetter = "setOnLongClickListener", listenerType = View.OnClickListener.class, callBackListener = "onLongClick")
+@ClickBase(listenerSetter = "setOnLongClickListener", listenerType = View.OnLongClickListener.class, callBackListener = "onLongClick")
 public @interface OnLongClick {
 
     int[] value();

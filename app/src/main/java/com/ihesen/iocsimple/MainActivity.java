@@ -2,6 +2,7 @@ package com.ihesen.iocsimple;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ihesen.ioclibrary.annotation.ContentView;
@@ -14,6 +15,8 @@ public class MainActivity extends BaseActivity {
 
     @InjectView(R.id.btn)
     private Button btn;
+    @InjectView(R.id.textview)
+    TextView textView;
 
 //
 //    @Override
@@ -36,13 +39,14 @@ public class MainActivity extends BaseActivity {
     //监听的对象 View.OnClickListener
     //回调方法 onClick(View v)
     @OnClick({R.id.btn, R.id.textview})
-    public void onClick(View view){
+    public void onClick(View view) {
         Toast.makeText(this, "OnClick: " + btn.getText().toString(), Toast.LENGTH_SHORT).show();
     }
 
     @OnLongClick({R.id.btn, R.id.textview})
-    public void onLongClick(){
-        Toast.makeText(this, "onLongClick: " + btn.getText().toString(), Toast.LENGTH_SHORT).show();
+    public boolean onLongClick() {
+        Toast.makeText(this, "onLongClick: " + textView.getText().toString(), Toast.LENGTH_SHORT).show();
+        return false;
     }
 
 }
